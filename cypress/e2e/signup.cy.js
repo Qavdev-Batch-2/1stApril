@@ -8,7 +8,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 describe('Testing Signup', ()=> {
   beforeEach(() =>{
-    cy.visit('https://www.konga.com/')
+    cy.visit('/')
   })
 
   it('Should be able to signup', ()=>{
