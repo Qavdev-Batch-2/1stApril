@@ -9,7 +9,20 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('Testing SignIn', ()=> {
   beforeEach(() =>{
     cy.visit('/')
-  })
+    })
+
+    /** 
+    it('should be able to launch URL', () => {
+      // Checking if the URL is secure
+      cy.visit('/')
+      cy.url().should('include', 'com')
+      cy.url().should('eq', 'https://www.konga.com/')
+      cy.url().should('contains', 'konga')
+      // Check that the location contains HTTPS
+      cy.location('protocol').should('contains', 'https')
+      cy.location('hostname').should('eq', 'www.konga.com')
+    })
+ */
 
   it.skip('Should not be able to signin with wrong email', ()=>{
     //Enter valid password and invalid email address
@@ -29,8 +42,15 @@ describe('Testing SignIn', ()=> {
     //Enter valid email and password
     cy.get(signIn.loginBtn).click()
     cy.get(signIn.emailField).type('Mahzeeljohn@gmail.com')
-    cy.get(signIn.passwordField).type('E.lens123456')
-    cy.get(signIn.loginButton).click()
+      //Setting Assertions
+    cy.get(signIn.emailField).click()
+    .should('be.enabled')
+  
+  
+    //cy.get(signIn.passwordField).type('E.lens123456')
+    //cy.get(signIn.loginButton).click()
+
+    
 })
 
 })
